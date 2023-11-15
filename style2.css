@@ -65,7 +65,7 @@ a {
  /*resume Button*/
  .dbutton{
 	border-radius: 20px;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.15);
+	/* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
  }
 
 
@@ -441,4 +441,178 @@ button span + span {
 	body {
 		background: #2e3138;
 	}
+}
+
+
+
+/* image effect */
+.containerimage {
+	position: relative;
+	max-width: 1160px; /* Set maximum width for responsiveness */
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	transform-style: preserve-3d;
+	perspective: 500px;
+	margin: auto;
+  }
+  
+  .containerimage .box {
+	position: relative;
+	width: calc(33.33% - 15px); /* Set width for three images in a row with margin */
+	height: 275px;
+	background: #000;
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	overflow: hidden;
+	margin-right: 15px;
+	margin-top: 45px;
+	box-sizing: border-box; /* Include padding and border in the box's total width and height */
+  }
+  
+  @media screen and (max-width: 980px) {
+	.containerimage .box {
+	  width: calc(50% - 15px); /* Set width for two images in a row on smaller screens */
+	}
+  }
+  
+  @media screen and (max-width: 600px) {
+	.containerimage .box {
+	  width: 100%; /* Set width for a single column on even smaller screens */
+	  margin-right: 0;
+	}
+  }
+  
+  .containerimage:hover .box {
+	transform: rotateY(25deg);
+  }
+  
+  .containerimage .box:hover ~ .box {
+	transform: rotateY(-25deg);
+  }
+  
+  .containerimage .box:hover {
+	transform: rotateY(0deg) scale(1.25);
+	z-index: 1;
+	box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .containerimage .box .imgBx {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .containerimage .box .imgBx:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, #f00, #000);
+	z-index: 1;
+	opacity: 0;
+	transition: 0.5s;
+	mix-blend-mode: multiply;
+  }
+  
+  .containerimage .box:hover .imgBx:before {
+	opacity: 1;
+  }
+  
+  .containerimage .box .imgBx img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+  
+  .containerimage .box .content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: flex;
+	padding: 20px;
+	align-items: flex-end;
+	box-sizing: border-box;
+  }
+  
+  .containerimage .box .content h2 {
+	color: #fff;
+	transition: 0.5s;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	font-size: 20px;
+	transform: translateY(200px);
+	transition-delay: 0.3s;
+  }
+  
+  .containerimage .box:hover .content h2 {
+	transform: translateY(0px);
+  }
+  
+  .containerimage .box .content p {
+	color: #fff;
+	transition: 0.5s;
+	font-size: 14px;
+	transform: translateY(200px);
+	transition-delay: 0.4s;
+  }
+  
+  .containerimage .box:hover .content p {
+	transform: translateY(0px);
+  }
+
+  
+  /* prfile animation */
+  .gallery {
+  --g: 8px;   /* the gap */
+  --s: 400px; /* the size */
+  
+  display: grid;
+  border-radius: 50%;
+}
+.gallery > img {
+  grid-area: 1/1;
+  width: 400px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: translate(var(--_x,0),var(--_y,0));
+  cursor: pointer;
+  z-index: 0;
+  transition: .3s, z-index 0s .3s;
+}
+.gallery img:hover {
+  --_i: 1;
+  z-index: 1;
+  transition: transform .2s, clip-path .3s .2s, z-index 0s;
+}
+.gallery:hover img {
+  transform: translate(0,0);
+}
+.gallery > img:nth-child(1) {
+  clip-path: polygon(50% 50%,calc(50%*var(--_i,0)) calc(120%*var(--_i,0)),0 calc(100%*var(--_i,0)),0 0,100% 0,100% calc(100%*var(--_i,0)),calc(100% - 50%*var(--_i,0)) calc(120%*var(--_i,0)));
+  --_y: calc(-1*var(--g))
+}
+.gallery > img:nth-child(2) {
+  clip-path: polygon(50% 50%,calc(100% - 120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100% - 100%*var(--_i,0)) 0,100% 0,100% 100%,calc(100% - 100%*var(--_i,0)) 100%,calc(100% - 120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
+  --_x: var(--g)
+}
+.gallery > img:nth-child(3) {
+  clip-path: polygon(50% 50%,calc(100% - 50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)),100% calc(100% - 120%*var(--_i,0)),100% 100%,0 100%,0 calc(100% - 100%*var(--_i,0)),calc(50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)));
+  --_y: var(--g)
+}
+.gallery > img:nth-child(4) {
+  clip-path: polygon(50% 50%,calc(120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100%*var(--_i,0)) 0,0 0,0 100%,calc(100%*var(--_i,0)) 100%,calc(120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
+  --_x: calc(-1*var(--g))
 }
