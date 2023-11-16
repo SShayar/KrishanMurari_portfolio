@@ -41,3 +41,14 @@ function getMSFromProperty(property,selector) {
 	else if (sLabelPos > -1)
 		return transDur.substr(0,sLabelPos) * 1e3;
 }
+
+
+
+
+// // darkmode button 
+// document.querySelector(".containerdark").addEventListener("click", () => {
+//     document.querySelector(".sun-logo").classList.toggle("animate-sun");
+//     document.querySelector(".moon-logo").classList.toggle("animate-moon");
+//     document.querySelector("body,nav").classList.toggle("dark");
+// })
+
