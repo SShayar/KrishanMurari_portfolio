@@ -44,7 +44,7 @@ a {
     color: #000;
   }
   .social ul li:hover i {
-    color: #fff;
+    color: #f2fa00;
     background: rgba(0, 0, 0, 0.36);
     transform: rotate(360deg);
     transition: all 1s;
@@ -203,7 +203,7 @@ button {
 	padding: 0.5em 1em;
 	position: relative;
 	transition: background 0.15s linear;
-/* 	width: 10.5em; */
+	/* width: 10.5em; */
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -659,3 +659,14 @@ button span + span {
 	fill: rgb(135, 135, 135);
 }  */
 
+
+
+/* gif animation icon  */
+
+
+    .gif {
+        width: 3rem; /* Adjust this value to match the desired size */
+        height: auto; /* Maintain the aspect ratio */
+        margin-right: 0.75rem; /* Adjust spacing as needed */
+    }
+/* gif animation icon ends */
