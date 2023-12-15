@@ -573,100 +573,27 @@ button span + span {
   }
 
   
-  /* profile animation */
-  .gallery {
-  --g: 8px;   /* the gap */
-  --s: 400px; /* the size */
-  
-  display: grid;
-  border-radius: 50%;
-}
-.gallery > img {
-  grid-area: 1/1;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-  transform: translate(var(--_x,0),var(--_y,0));
-  cursor: pointer;
-  z-index: 0;
-  transition: .3s, z-index 0s .3s;
-}
-.gallery img:hover {
-  --_i: 1;
-  z-index: 1;
-  transition: transform .2s, clip-path .3s .2s, z-index 0s;
-}
-.gallery:hover img {
-  transform: translate(0,0);
-}
-.gallery > img:nth-child(1) {
-  clip-path: polygon(50% 50%,calc(50%*var(--_i,0)) calc(120%*var(--_i,0)),0 calc(100%*var(--_i,0)),0 0,100% 0,100% calc(100%*var(--_i,0)),calc(100% - 50%*var(--_i,0)) calc(120%*var(--_i,0)));
-  --_y: calc(-1*var(--g))
-}
-.gallery > img:nth-child(2) {
-  clip-path: polygon(50% 50%,calc(100% - 120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100% - 100%*var(--_i,0)) 0,100% 0,100% 100%,calc(100% - 100%*var(--_i,0)) 100%,calc(100% - 120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
-  --_x: var(--g)
-}
-.gallery > img:nth-child(3) {
-  clip-path: polygon(50% 50%,calc(100% - 50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)),100% calc(100% - 120%*var(--_i,0)),100% 100%,0 100%,0 calc(100% - 100%*var(--_i,0)),calc(50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)));
-  --_y: var(--g)
-}
-.gallery > img:nth-child(4) {
-  clip-path: polygon(50% 50%,calc(120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100%*var(--_i,0)) 0,0 0,0 100%,calc(100%*var(--_i,0)) 100%,calc(120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
-  --_x: calc(-1*var(--g))
-}
-
-
-/* darkmode button */
-/* .containerdark{
-    position: relative;
-}
-.dark{
-    background-color: black;
-}
-.sun, .moon{
-    font-size: 5rem;
-    width: fit-content;
-    height: fit-content;
-}
-.moon{
-    position: absolute;
-    inset: 0;
-}
-.moon-logo{
-    opacity: 0;
-    transform: translateY(20%) rotateZ(50deg);
-    transition: all 1s ease-out;
-}
-.sun-logo{
-    opacity: 1;
-    transform: translateY(0) rotateZ(0deg);
-    transition: all 1s ease-out;
-}
-.animate-sun{
-    opacity: 0;
-    transform: translateY(20%) rotateZ(100deg);
-}
-.animate-moon{
-    opacity: 1;
-    transform: translateY(0%) rotateZ(0deg);
-}
-.animate-moon path{
-  fill: rgb(135, 135, 135);
-}
-.animate-sun path{
-	fill: rgb(135, 135, 135);
-}  */
-
-
 
 /* gif animation icon  */
 
 
-    .gif {
-        width: 3rem; /* Adjust this value to match the desired size */
-        height: auto; /* Maintain the aspect ratio */
-        margin-right: 0.75rem; /* Adjust spacing as needed */
-    }
+.icon-container i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem; /* Adjust the size as needed */
+    height: 3.5rem; /* Adjust the size as needed */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 20%; 
+    overflow: hidden;
+    transition: border-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Change the border color on hover */
+.icon-container i:hover {
+    border-color: #0A96FF; /* Change the color on hover */
+}
+
+
 /* gif animation icon ends */
+
