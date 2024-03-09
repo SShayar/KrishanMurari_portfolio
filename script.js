@@ -52,7 +52,7 @@ function getMSFromProperty(property,selector) {
 //     document.querySelector("body,nav").classList.toggle("dark");
 // })
 
-
+// Intro animation text effect 
 var aText = new Array(
 	"Hi Viewer, My self Krishan",
 	"As a web developer, I thrive on turning lines of code into beautifully functional websites, infusing each project with a touch of innovation.",
@@ -83,12 +83,19 @@ var aText = new Array(
 	  if ( iIndex != aText.length ) {
 	   iArrLength = aText[iIndex].length;
 	   setTimeout("typewriter()", 500);
-	  }
+	}
 	 } else {
 	  setTimeout("typewriter()", iSpeed);
 	 }
 	}
 	typewriter();
 
+	// Intro animation text effect ends
+// form animation 
 
+
+
+
+// form animation ends 
+	
 	
